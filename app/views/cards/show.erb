@@ -1,10 +1,11 @@
-<h1>CARDS IN DECK <%= @deck.name %> </h1>
+<h1 class="middle"><%= @deck.name %> </h1>
 
+<div class="fc-container">
 <ul>
-<% @all_deck_cards.each do |card| %>
-<li> <%= card.question %> </li>
-<% end %>
-<ul>
+<li> <%= @all_deck_cards.first.question %> </li>
+</ul>
+</div>
+
 
 
 

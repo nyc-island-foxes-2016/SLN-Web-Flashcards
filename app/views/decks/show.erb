@@ -1,10 +1,10 @@
-<h1>WEB FLASHCARD GAME</h1>
+<h1 class="middle">WEB FLASHCARD GAME</h1>
 
-<h2>CHOOSE YOUR DECK</h2>
+<h3 class="middle">CHOOSE YOUR DECK</h3>
 
 <ul>
 <% @all_decks.each do |deck| %>
-<li> <a href="<%= "decks/#{deck.id}" %>"><%= deck.name %> </a></li>
+<li class="middle no-bullets"> <a href="<%= "decks/#{deck.id}" %>"><%= deck.name %> </a></li>
 <% end %>
 <ul>
 

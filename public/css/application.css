@@ -1,0 +1,20 @@
+.middle {
+	text-align: center
+}
+
+.fc-container {
+	color:white;
+	border-radius:5px;
+	background-color: #FF8C00;
+	width: 300px;
+	height: 300px;
+	text-align: center;
+	text-decoration: none;
+	margin:0 auto;
+	margin-top: 10%;
+	line-height: 300px;
+}
+
+.no-bullets {
+	list-style-type: none;
+}
