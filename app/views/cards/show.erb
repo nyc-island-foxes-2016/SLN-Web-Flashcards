@@ -1,9 +1,12 @@
 <h1 class="middle"><%= @deck.name %> </h1>
 
 <div class="fc-container">
-<ul>
-<li> <%= @all_deck_cards.first.question %> </li>
-</ul>
+	<form class="fc-form" method="post" action="<%= "/decks/guess/#{@all_deck_cards.first.id}" %>">
+		<p><%= @all_deck_cards.first.question %></p>
+		<label for="answer">Enter your guess:</label>
+		<input class="form-input" id="answer" name="flashcard[answer]" type="text">
+		<input type="submit" value="Submit Your Guess!" class="button form-button">
+	</form>
 </div>
 
 
