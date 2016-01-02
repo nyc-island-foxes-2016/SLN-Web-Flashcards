@@ -1,0 +1,10 @@
+<h1>WEB FLASHCARD GAME</h1>
+
+<h2>CHOOSE YOUR DECK</h2>
+
+<ul>
+<% @all_decks.each do |deck| %>
+<li> <a href="<%= "decks/#{deck.id}" %>"><%= deck.name %> </a></li>
+<% end %>
+<ul>
+
