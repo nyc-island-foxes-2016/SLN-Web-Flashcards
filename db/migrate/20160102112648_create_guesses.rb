@@ -8,3 +8,5 @@ class CreateGuesses < ActiveRecord::Migration
 		end
 	end
 end
+
+
