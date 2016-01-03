@@ -10,30 +10,26 @@ get '/:deck_id/guesses/new/' do
   end
 
 #select random card to kick off game
-  playcard = Guess.find_by(round_id: @round.id).order("RANDOM()").first
+  @playcard = Guess.find_by(round_id: @round.id).order("RANDOM()").first
 
   redirect '/guesses/#{@playcard.id}/edit'
 end
 
-post '/guesses' do
-  # create a new round for a selected deck
-  # create new guesses for the round, one per card, one attempts, 0 correct, run method to pull random entry for first round and get guess_id
-  redirect '/guesses/#{@guess_id}/edit'
-end
-
-get 'guesses/#{@guess_id}' do
-#show correct answer and next button to next question
- erb :'guess/show'
-end
-
+# post '/guesses' do
+#   # create a new round for a selected deck
+#   # create new guesses for the round, one per card, one attempts, 0 correct, run method to pull random entry for first round and get guess_id
+#   redirect '/guesses/#{@guess_id}/edit'
+# end
 # enter guess for question and put data
-get '/guesses/#{@guess_id}/edit' do
+
+get '/guesses/:id/edit' do
+  @card = Guess.find(params[])
   # view card question
   # view has form to input card answer
   erb :'guess/edit'
 end
 
-put '/guesses/#{@guess_id}' do
+put '/guesses/:id' do
 #get answer from deck
 #check if answer is correct
 #if answer is correct, call guess method in model to change boolean to true and set string variable correct! to true
@@ -44,4 +40,7 @@ put '/guesses/#{@guess_id}' do
   redirect '/guesses/#{@guess_id}/'
 end
 
-
+get 'guesses/:id' do
+#show correct answer and next button to next question
+ erb :'guess/show'
+end
