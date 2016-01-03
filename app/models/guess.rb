@@ -4,7 +4,7 @@ class Guess < ActiveRecord::Base
 
   def next_guess
 
-    if Guess.find_by(number_plays: 0)
+    if Guess.find_by(number_plays: 0, round_id: self.round_id)
     #check if there are any unplayed cards, select randomly from unplayed cards
 
       @playcard = Guess.where(number_plays: 0, round_id: self.round_id).order("RANDOM()").first
