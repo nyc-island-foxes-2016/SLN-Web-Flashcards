@@ -10,6 +10,5 @@ post '/rounds' do
   deck = Deck.find(params[:deck][:id])
   session[:round_id] = round.id
   session[:deck_id] = deck.id
-  require 'pry'; binding.pry
   redirect "/guesses/new"
 end
