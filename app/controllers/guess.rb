@@ -23,9 +23,8 @@ end
 # enter guess for question and put data
 
 get '/guesses/:id/edit' do
-  @card = Guess.find(params[])
-  # view card question
-  # view has form to input card answer
+  @guess = Guess.find(params[:id])
+  @card = Card.find(@guess.card_id)
   erb :'guess/edit'
 end
 
