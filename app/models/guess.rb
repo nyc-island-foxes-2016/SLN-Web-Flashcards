@@ -14,7 +14,7 @@ class Guess < ActiveRecord::Base
       @playcard = Guess.where(correct_guess: false, round_id: self.round_id).order("RANDOM()").first
     end
 
-    @playcard.update_attributes(:number_plays +=1)
+    @playcard.update_attributes(number_plays: :number_plays + 1)
 #did incrementing counter work?
     binding.pry
     @playcard
