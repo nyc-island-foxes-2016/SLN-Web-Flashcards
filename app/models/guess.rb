@@ -2,19 +2,20 @@ class Guess < ActiveRecord::Base
 	belongs_to :round
 	belongs_to :card
 
-  def next_guess
+  def self.next_card(round_id, card_ids)
+    all_guesses = Guess.where(round_id: round_id).pluck(:card_id)
+    #ids of all cards
 
-    if Guess.find_by(number_plays: 0, round_id: self.round_id)
-      @playcard = Guess.where(number_plays: 0, round_id: self.round_id).order("RANDOM()").first
-    elsif Guess.find_by(correct_guess: false, round_id: self.round_id)
-      @playcard = Guess.where(correct_guess: false, round_id: self.round_id).order("RANDOM()").first
+    all_incorrect_guesses = Guess.where(round_id: round_id, correct_guess: false).pluck(:card_id)
+    #ids of all cards that need to be replayed
+
+    if all_guesses.length < card_ids.length
+      card_ids.select {|card| !all_guesses.include?(card)}.sample #gives remaining cards to play
+    elsif all_incorrect_guesses > 0
+      all_incorrect_guesses.sample
     else
-      #return something indicating complete
+      nil
     end
 
-    @playcard.update_attributes(number_plays: :number_plays + 1)
-
-    # binding.pry
-    @playcard
   end
 end

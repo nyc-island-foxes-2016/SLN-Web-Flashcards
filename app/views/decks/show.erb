@@ -12,7 +12,7 @@
   <% end %>
 <ol>
 
-<form method="get" action="/rounds/new">
+<form method="post" action="/rounds">
   <input type="hidden" name="deck[id]" value="<%= @deck.id %>">
 
   <input type="submit" value="Play this deck!">

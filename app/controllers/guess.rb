@@ -1,6 +1,27 @@
 #start a new round and create guess entries for round
 #redirect to (show?)
 
+get '/guesses/new' do
+  deck = Deck.find(session[:deck_id])
+  @cards = deck.cards.pluck(:id)
+  @round = session[:round_id]
+  @card = Card.find(Guess.next_card(@round, @cards))
+  erb :'/guesses/new'
+end
+
+post '/guesses/new' do
+  current_card = Card.find(params[:card_id])
+
+  result = current_card.check_card_against_guess?(params[:answer])
+
+  @guess = Guess.create(round_id: params[:round_id], card_id: params[:card_id], correct_guess: result)
+  @round = Round.find(@guess.round_id)
+  @card = Card.find(@guess.card_id)
+  # require 'pry'; binding.pry
+  erb :'cards/show'
+end
+
+
 get '/rounds/:round_id/guesses/new/' do
   #create new guess entries for each card in requested deck
 
