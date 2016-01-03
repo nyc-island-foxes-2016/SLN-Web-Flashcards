@@ -1,7 +1,7 @@
 # add method to count number of single guesses for a round id
 # add a method to count total number of guesses for a round id
 
-get 'round/new'
+get 'round/new' do
   round = Round.create()
 
   # can make a start button that leads to guesses/new

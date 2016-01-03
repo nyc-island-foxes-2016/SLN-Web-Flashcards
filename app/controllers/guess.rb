@@ -4,12 +4,12 @@
 get '/rounds/:round_id/guesses/new/' do
   #create new guess entries for each card in requested deck
 
-#sasha fixes
+  #sasha fixes
   #redo deck to find by round id #################
   @deck = Deck.find_by(id: params[:deck_id]).cards.all
 
    #add user id in here if logged in
-  @deck.each |card| do
+  @deck.each do |card|
     Guess.create(card: card_id, round_id: @round.id)
   end
 
@@ -40,7 +40,7 @@ put '/rounds/:round_id/guesses/:id' do
     erb :'guess/show'
     # need to get from 'guess/show' to next guess using Guess.next_guess method
   #redirect "/rounds/:round_id/guesses/#{@guess_id}/"
-  end
+  # end
 end
 
 get '/rounds/:round_id/guesses/:id' do
