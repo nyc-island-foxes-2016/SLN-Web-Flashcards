@@ -2,14 +2,24 @@ class Guess < ActiveRecord::Base
 	belongs_to :round
 	belongs_to :card
 
+  def next_guess
 
+    if Guess.find_by(number_plays: 0)
+    #check if there are any unplayed cards, select randomly from unplayed cards
 
-# add method to pull randomly from unplayed cards
-  #first pull from cards that haven't been played yet
-  #if all cards have been played, randomly select from cards that haven't been answered correctly
-# add method to return boolean once all cards are all played once
-# add method to increment count of play for each card
+      @playcard = Guess.where(number_plays: 0, round_id: self.round_id).order("RANDOM()").first
+    else
+    #pull randomly from all cards that have not had a correct guess
 
+      @playcard = Guess.where(correct_guess: false, round_id: self.round_id).order("RANDOM()").first
+    end
+
+    @playcard.update_attributes(:number_plays +=1)
+#did incrementing counter work?
+    binding.pry
+    @playcard
+
+  end
 
 
 end
