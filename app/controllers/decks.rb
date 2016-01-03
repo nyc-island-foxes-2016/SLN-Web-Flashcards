@@ -6,4 +6,8 @@ get '/decks' do
 
 end
 
-
+get '/decks/:id' do
+  @deck = Deck.find(params[:id])
+  @cards = @deck.cards
+  erb :'decks/show'
+end

@@ -4,16 +4,15 @@
 get '/rounds/:round_id/guesses/new/' do
   #create new guess entries for each card in requested deck
 
-  #sasha fixes
-  #redo deck to find by round id #################
   @deck = Deck.find_by(id: params[:deck_id]).cards.all
 
    #add user id in here if logged in
-  @deck.each do |card|
+  @deck.cards.each do |card|
     Guess.create(card: card_id, round_id: @round.id)
   end
 
 #select random card to kick off game
+# missing a guess card to call next_guess function on
   playcard = Guess.next_guess
 
   redirect "/rounds/:round_id/guesses/#{playcard.id}/edit"

@@ -14,7 +14,7 @@ DECK.each do |name|
   deck =Deck.create(name: name)
   CARDS.each do |card_params|
     deck.cards << Card.create(card_params)
-end
+endq
 end
 
 

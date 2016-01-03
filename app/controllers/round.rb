@@ -1,12 +1,15 @@
 # add method to count number of single guesses for a round id
 # add a method to count total number of guesses for a round id
 
-get 'round/new' do
-  round = Round.create()
+# get '/rounds' do
+#   @round = Round.new()
+#   erb :'rounds/show'
+# end
 
-  # can make a start button that leads to guesses/new
 
-  redirect '/rounds/#{round.id}/guesses/new/'
+get '/rounds/new' do
+  @round = Round.new()
+  erb :'rounds/'
 end
 
 #display all rounds and stats for user
