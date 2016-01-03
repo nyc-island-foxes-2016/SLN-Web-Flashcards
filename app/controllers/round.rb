@@ -2,7 +2,7 @@
 # add a method to count total number of guesses for a round id
 
 #display all rounds and stats for user
-get ':user_id/rounds/index' do
+get ':user_id/index' do
   # displays all rounds played with stats for logged in user
   erb :'rounds/index'
 end
