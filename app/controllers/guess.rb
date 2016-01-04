@@ -10,6 +10,10 @@ get '/guesses/new' do
     erb :'/guesses/new'
   else
     @round = Round.find(session[:round_id])
+    @deck_name = @round.guesses.first.deck.name
+    @total_cards = @cards.count
+    @correct_on_first = @round.guesses.where(number_plays: 1).count
+    @total_guesses = @round.guesses.sum(:number_plays)
     erb :'/rounds/show'
   end
 end

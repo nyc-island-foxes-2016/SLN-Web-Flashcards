@@ -1,6 +1,8 @@
 class Guess < ActiveRecord::Base
 	belongs_to :round
 	belongs_to :card
+  has_one :deck, through: :card
+
 
   def self.next_card(round_id, card_ids)
     all_guesses = Guess.where(round_id: round_id).pluck(:card_id)
