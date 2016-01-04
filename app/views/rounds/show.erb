@@ -1,8 +1,4 @@
 
-<h2>Round <%= @round.id %></h2>
+<h2><%=@deck_name%></h2>
 
-<p>hey</p>
-
-<%= @round.user_id %>
-
-# where to show stats
+<p>You've completed a round of "<%=@deck_name%>". You answered <%=@correct_on_first%>/<%=@total_cards%> correctly on the first try. You submitted <%=@total_guesses%> total guesses before each card was answered correctly.
