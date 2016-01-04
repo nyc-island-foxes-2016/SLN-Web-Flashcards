@@ -2,7 +2,7 @@
 <h2>Round <%= @round.id %></h2>
 
 <p>
-  <%= @guess.correct_guess %>
+  <%= @current_guess.correct_guess %>
 </p>
 
 <p>
@@ -14,7 +14,7 @@
 </p>
 
 <form method="get" action="/guesses/new">
-  <input type="hidden" name="guess_id" value="<%= @guess.id %>">
+  <input type="hidden" name="guess_id" value="<%= @current_guess.id %>">
 
   <input type="submit" value="Next">
 </form>
