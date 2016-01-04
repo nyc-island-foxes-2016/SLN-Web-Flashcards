@@ -28,7 +28,6 @@ post '/guesses/new' do
     @current_guess = Guess.create(round_id: params[:round_id], card_id: params[:card_id], correct_guess: result)
   end
 
-
   @round = Round.find(@current_guess.round_id)
   @card = Card.find(@current_guess.card_id)
   erb :'cards/show'
