@@ -1,6 +1,3 @@
-#start a new round and create guess entries for round
-#redirect to (show?)
-
 get '/guesses/new' do
   deck = Deck.find(session[:deck_id])
   @cards = deck.cards.pluck(:id)
