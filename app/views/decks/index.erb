@@ -1,9 +1,6 @@
-
-
 <h3 class="middle">CHOOSE YOUR DECK</h3>
-
 <ul>
-  <% @all_decks.each do |deck| %>
-    <li class="middle no-bullets"> <a href="<%= "decks/#{deck.id}" %>"><%= deck.name %> </a></li>
-  <% end %>
-<ul>
+	<% @all_decks.each do |deck| %>
+	<li class="middle no-bullets"> <a href="<%= "decks/#{deck.id}" %>"><%= deck.name %> </a></li>
+	<% end %>
+</ul>

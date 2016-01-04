@@ -1,16 +1,14 @@
-
-
 <h3 class="middle">Deck <%= @deck.id %></h3>
+<ol class="middle">
+	<% @cards.each do |card| %>
+	<li class="middle no-bullets"> Question: <%= card.question %>
+	</li>
+	<li class="middle no-bullets"> Answer: <%= card.answer %>
+	</li>
+	<% end %>
+</ol>
 
-<ol>
-  <% @cards.each do |card| %>
-    <li class="middle no-bullets"> Question: <%= card.question %>? Answer: <%= card.answer %>
-    </li>
-  <% end %>
-<ol>
-
-<form method="post" action="/rounds">
-  <input type="hidden" name="deck[id]" value="<%= @deck.id %>">
-
-  <input type="submit" value="Play this deck!">
+<form class="middle" method="post" action="/rounds">
+	<input type="hidden" name="deck[id]" value="<%= @deck.id %>">
+	<input class="play-button success middle-horizontal" type="submit" value="Play this deck!">
 </form>

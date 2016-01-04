@@ -1,5 +1,6 @@
 .middle {
-	text-align: center
+	text-align: center;
+	padding:0;
 }
 
 .fc-container {
@@ -7,11 +8,11 @@
 	border-radius:5px;
 	background-color: #FF8C00;
 	width: 400px;
-	height: 300px;
+	height: 200px;
 	text-align: center;
 	text-decoration: none;
 	margin:0 auto;
-	margin-top: 10%;
+	margin-top: 5%;
 	padding:2em;
 }
 
@@ -52,4 +53,62 @@
   text-shadow: 0 1px 0 rgba(0,0,0,0.5);
   color: #FFF;
   margin-left: 25px;
+}
+
+.signup-button {
+  margin-top: 1em;
+  display: inline-block;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 10px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-bottom-width: 3px;
+  background-color: #699DB6;
+  border-color: rgba(0,0,0,0.3);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  color: #FFF;
+  margin-left: 25px;
+}
+
+.play-button {
+	display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.success {
+	color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.failure {
+	color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.middle-horizontal {
+	margin:0 auto;
 }

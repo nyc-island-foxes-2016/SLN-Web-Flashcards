@@ -1,20 +1,12 @@
+<h2 class="middle">Round <%= @round.id %></h2>
+<div class="fc-container">
+	<form class-"fc-form" method="get" action="/guesses/new">
+		<p class="middle"><%= @current_guess.correct_guess.to_s.capitalize %></p>
+		<p class="middle">Question: <%= @card.question%></p>
+		<p class="middle">Answer: <%= @card.answer%></p>
+		<input type="hidden" name="guess_id" value="<%= @current_guess.id %>">
 
-<h2>Round <%= @round.id %></h2>
+		<input class="play-button success middle-horizontal"type="submit" value="Next">
 
-<p>
-  <%= @current_guess.correct_guess %>
-</p>
-
-<p>
-  Question: <%= @card.question%>
-</p>
-
-<p>
-  Answer: <%= @card.answer%>
-</p>
-
-<form method="get" action="/guesses/new">
-  <input type="hidden" name="guess_id" value="<%= @current_guess.id %>">
-
-  <input type="submit" value="Next">
-</form>
+	</form>
+</div>

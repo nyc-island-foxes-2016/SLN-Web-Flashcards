@@ -17,20 +17,19 @@
 
   <title></title>
 </head>
-<body>
+<body class="middle">
 
-  <h1 class="middle"><a href="/">WEB FLASHCARD GAME</a></h1>
+  <h1><a href="/">WEB FLASHCARD GAME</a></h1>
 
   <% if logged_in? %>
-    <a href="/users/show"><%=current_user.name%></a>
-    <form action="/sessions" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Logout">
-    </form>
-
+  <a href="/users/show"><%="USER  #{current_user.name}"%></a>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="play-button failure" type="submit" value="Logout">
+  </form>
   <% else %>
-    <a href="/sessions/new" class="login-button">Login</a>
-    <a href="/users/new" class="signup-button">Sign up</a>
+  <a href="/sessions/new" class="login-button">Login</a>
+  <a href="/users/new" class="signup-button">Sign up</a>
   <% end %>
 
   <%= yield %>

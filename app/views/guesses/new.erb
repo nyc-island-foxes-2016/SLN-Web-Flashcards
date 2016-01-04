@@ -1,16 +1,14 @@
-<h2>Round <%= @round %></h2>
+<h2 class="middle">Round <%= @round %></h2>
 
-<p>
-  <%= @card.question%>
-</p>
+<div class="fc-container">
+	<form class-"fc-form" method="post" action="/guesses/new">
+		<p class="middle"><%= @card.question%></p>
+		<label for="guess-answer">Guess: </label>
+		<input class="form-input" id="guess-answer" name="answer" type="text">
 
-<form method="post" action="/guesses/new">
-  <label for="guess-answer">Guess: </label>
-  <input id="guess-answer" name="answer" type="text">
+		<input type="hidden" name="round_id" value="<%= @round %>">
+		<input type="hidden" name="card_id" value="<%= @card.id %>">
 
-  <input type="hidden" name="round_id" value="<%= @round %>">
-  <input type="hidden" name="card_id" value="<%= @card.id %>">
-
-  <input type="submit" value="Submit">
-
-</form>
+		<input class="form-button" type="submit" value="Submit">
+	</form>
+</div>
