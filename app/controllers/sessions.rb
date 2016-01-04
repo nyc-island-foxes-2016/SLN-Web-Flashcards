@@ -1,21 +1,30 @@
-get '/login' do
+# get '/login' do
 
-  erb :login
+#   erb :login
+# end
+
+# post '/login' do
+# #checking password
+# # uses session[:user_id]
+# end
+
+get '/sessions/new' do
+  erb :'sessions/new'
 end
 
-post '/login' do
-#checking password
-# uses session[:user_id]
+post '/sessions' do
+  @user = User.find_by(name: params[:user][:name])
+  if @user && @user.password == params[:user][:password]
+    session[:user_id] = @user.id
+    redirect "/users/#{@user.id}"
+  else
+    redirect "/sessions/new"
+  end
 end
 
-get '/sessions/new'do
-
-end
-
-get '/logout' do
-
-# session.clear
-
+delete '/sessions' do
+  session.clear
+  redirect '/'
 end
 
 
